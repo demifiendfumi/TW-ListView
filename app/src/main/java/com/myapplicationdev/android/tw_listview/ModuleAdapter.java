@@ -26,7 +26,7 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
     }
 
     // getView() is the method ListView will call to get the
-    //  View object every time ListView needs a row
+    //  View object every time ListView needs a rowSecond
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -34,8 +34,8 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
         //  "inflate" the XML file into a View object
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        // "Inflate" the row.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.row, parent, false);
+        // "Inflate" the rowSecond.xmll as the layout for the View object
+        View rowView = inflater.inflate(R.layout.rowsecond, parent, false);
 
         // Get the TextView object
         tvName = (TextView) rowView.findViewById(R.id.tvModule);
@@ -43,7 +43,7 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
         ivIcon = (ImageView) rowView.findViewById(R.id.ivIcon);
 
         // The parameter "position" is the index of the
-        //  row ListView is requesting.
+        //  rowSecond ListView is requesting.
         //  We get back the food at the same index.
         Module currentFood = modules.get(position);
         // Set the TextView to show the food

@@ -22,7 +22,7 @@ public class FirstActivity extends AppCompatActivity {
 
         lv = (ListView) this.findViewById(R.id.lvYear);
 
-        String[] year = new String[] { "Year 1","Year 2","Year 3"
+        final String[] year = new String[] { "Year 1","Year 2","Year 3"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -37,9 +37,10 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedYear = String.valueOf(lv.getItemIdAtPosition(position));
+                String selectedYearArray = year[Integer.valueOf(selectedYear)];
 
                 Intent i = new Intent(FirstActivity.this, SecondActivity.class);
-                i.putExtra("year",selectedYear);
+                i.putExtra("year",selectedYearArray);
                 startActivity(i);
             }
         });

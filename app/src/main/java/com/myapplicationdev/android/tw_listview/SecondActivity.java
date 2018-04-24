@@ -27,38 +27,29 @@ public class SecondActivity extends AppCompatActivity {
 
         // Create a few objects in array
         modules = new ArrayList<Module>();
-        modules.add(new Module("Year 1","A113", false));
-        modules.add(new Module("Year 1","C102", true));
-        modules.add(new Module("Year 1","B102", true));
-
-        modules.add(new Module("Year 2","C208", true));
-        modules.add(new Module("Year 2","C200", false));
-        modules.add(new Module("Year 2","C346", true));
-
-        modules.add(new Module("Year 3","C302", true));
-        modules.add(new Module("Year 3","C347", true));
-        modules.add(new Module("Year 3","C349", true));
 
         Intent i = getIntent();
         String year = i.getStringExtra("year");
         tvYear.setText(year);
 
-        if (tvYear.getText()=="Year 1"){
-            aa = new ModuleAdapter(this, R.layout.row, modules);
-            lvM.setAdapter(aa);
-
-        }else if (tvYear.getText()=="Year 2"){
-            aa = new ModuleAdapter(this, R.layout.row, modules);
-            lvM.setAdapter(aa);
-
-        }else if (tvYear.getText()=="Year 3"){
-            aa = new ModuleAdapter(this, R.layout.row, modules);
-            lvM.setAdapter(aa);
+        if(tvYear.getText().equals("Year 1")) {
+            modules.add(new Module( "A113", false));
+            modules.add(new Module( "C102", true));
+            modules.add(new Module( "B102", true));
+        }else if(tvYear.getText().equals("Year 2")) {
+            modules.add(new Module( "C208", true));
+            modules.add(new Module( "C200", false));
+            modules.add(new Module( "C346", true));
+        }else if(tvYear.getText().equals("Year 3")) {
+            modules.add(new Module("C302", true));
+            modules.add(new Module("C347", true));
+            modules.add(new Module("C349", true));
         }
+        aa = new ModuleAdapter(this, R.layout.rowsecond, modules);
+        lvM.setAdapter(aa);
+
 
 
     }
-
-
 
 }
