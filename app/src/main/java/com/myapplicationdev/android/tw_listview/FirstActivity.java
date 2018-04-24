@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class FirstActivity extends AppCompatActivity {
 
     ListView lv;
-    ArrayList<Module> modules;
-    ArrayAdapter aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +26,7 @@ public class FirstActivity extends AppCompatActivity {
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.row, R.id.tvYear, year);
+                R.layout.row2, R.id.tv_Year, year);
 
 
         // Assign adapter to ListView
@@ -38,11 +36,10 @@ public class FirstActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Module selectedYear = modules.get(position);
+                String selectedYear = String.valueOf(lv.getItemIdAtPosition(position));
 
-                String[] year = {selectedYear.getYear()};
                 Intent i = new Intent(FirstActivity.this, SecondActivity.class);
-                i.putExtra("year",year);
+                i.putExtra("year",selectedYear);
                 startActivity(i);
             }
         });
